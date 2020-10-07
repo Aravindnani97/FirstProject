@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<button class="btn btn-outline-light float-right " type="button">@Html.ActionLink("Edit Customer", "Edit", new { id = Model.id }, null)</button>
+
+@using (Html.BeginForm("Delete", "Customer", new { id = Model.id }, FormMethod.Post))
+{
+    <button id="cmdDelete" type="submit" class="btn btn-outline-danger float-right">Delete</button>
+}
+
+
+
+@if (Model == null)
+{
+    <label>Sorry..!! Currently No Customer Exist On This Id</label>
+}
+else
+{
+    <h2>Details of @Model.Name</h2>
+
+    <ul class="list-group">
+        <li class="list-group-item">Customer Name:@Model.Name</li>
+        <li class="list-group-item">Gender:@Model.Gender</li>
+        <li class="list-group-item">Address:@Model.Address</li>
+        <li class="list-group-item">Date Of Birth:@Model.DateofBirth</li>
+        <li class="list-group-item">Membership Type:@Model.Membership.MembershipType</li>
+        <li class="list-group-item">SignUp Fee:@Model.Membership.SignUpFee</li>
+        <li class="list-group-item">Duration:@Model.Membership.Duration</li>
+        <li class="list-group-item">Discount:@Model.Membership.Discount</li>
+
+    </ul>
+}
+@Html.ActionLink("Back to List", "Index", "Customer")
+
+

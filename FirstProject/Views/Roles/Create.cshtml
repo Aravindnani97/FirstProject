@@ -1,0 +1,15 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create New Role</h2>
+
+<div class="form-group">
+    @using (Html.BeginForm())
+    {
+        <label>Enter Role</label>
+        @Html.TextBoxFor(x=>x.Name,new { @class="Form-control"})
+        <button id="cmdCreate" type="submit" class="btn btn-primary">Create Role</button>
+    }
+</div>

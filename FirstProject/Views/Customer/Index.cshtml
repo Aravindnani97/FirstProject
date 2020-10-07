@@ -1,0 +1,26 @@
+﻿@model IEnumerable<FirstProject.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Customer Details</h2>
+@Html.ActionLink("Add Customer", "Create", "Customer", null, new { @class = "btn btn-outline-success" })
+
+<table class="table table-bordered table-hover table-active text-danger">
+    <tr>
+        <th>Customer Id</th>
+        <th>Customer Name</th>
+    </tr>
+    @foreach (var customers in Model)
+    {
+        <tr>
+            <td>@customers.id</td>
+            <td> @Html.ActionLink(customers.Name, "Details", "Customer", new { id = customers.id }, null)</td>
+
+
+        </tr>
+    }
+</table>
+
+

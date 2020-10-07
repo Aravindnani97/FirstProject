@@ -1,0 +1,30 @@
+﻿@model IEnumerable<FirstProject.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+}
+@{
+
+
+    @*<img src="~/images/download (3).jpg" />*@
+
+}
+
+<h2>Movie Details</h2>
+    @Html.ActionLink("Add Movie", "Create", "Movies",null,new { @class = "btn btn-outline-success" })
+<table class="table table-bordered table-hover table-active text-danger">
+    <tr>
+        <th>Movie Id</th>
+        <th>Movie Name</th>
+
+    </tr>
+    @foreach (var movie in Model)
+    {
+        <tr>
+            <td>@movie.id</td>
+            <td> @Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.id }, null)</td>
+
+
+        </tr>
+    }
+</table>
+
